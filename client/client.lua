@@ -39,6 +39,7 @@ for k, v in pairs(PosRapine) do
                     if IsPedArmed(PlayerPedId(), 1) or IsPedArmed(PlayerPedId(), 2) or IsPedArmed(PlayerPedId(), 4) then
                         ESX.ShowNotification(YD.Lang.Allarme)
                         NotificaPolizia()
+			FreezeEntityPosition(ped, true)
                         if YD.Progress.Bar then
                             if lib.progressBar({
                                 duration = YD.Progress.Tempo,
@@ -51,6 +52,7 @@ for k, v in pairs(PosRapine) do
                                 },
                             }) then TriggerServerEvent('rapina', GetEntityCoords(PlayerPedId())) end
                                 ESX.ShowNotification(YD.Lang.RapinaSuccess)
+				FreezeEntityPosition(ped, false)
                         elseif YD.Progress.Circle.Active then 
                             if lib.progressCircle({
                                 duration = YD.Progress.Tempo,
